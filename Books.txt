@@ -1,0 +1,19 @@
+1,The Great Gatsby,F. Scott Fitzgerald,1925,4
+1,Lord of the Flies,William Golding,1954,5
+0,Slaughterhouse Five,Kurt Vonnegut,1969,
+0,A Clockwork Orange,Anthony Burgess,1962,
+0,Candide,Voltaire,1759,
+0,Lolita,Vladimir Nabokov,1955,
+1,Invisible Man,Ralph Ellison,1952,2
+1,The Scarlet Letter,Nathaniel Hawthorne,1850,4
+1,Siddhartha,Herman Hesse,1922,3
+1,Death of a Salesman,Arthur Miller,1949,5
+1,Heart of Darkness,Joseph Conrad,1899,3
+1,The Awakening,Kate Chopin,1899,2
+1,Of Mice and Men,John Steinbeck,1937,3
+1,Wuthering Heights,Emily Bronte,1847,4
+0,Animal Farm,George Orwell,1945,
+0,The Stranger,Albert Camus,1942,
+1,Anthem,Ayn Rand,1937,4
+0,Les Miserables,Victor Hugo,1862,
+1,The Catcher in the Rye,J.D. Salinger,1951,3
