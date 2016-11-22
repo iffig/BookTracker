@@ -40,6 +40,7 @@ struct BookNode{
     
 };
 
+
 class BookTree{
     
     public:
@@ -51,6 +52,9 @@ class BookTree{
         void printRead();
         void printUnread();
         void getBookInfo(std::string);
+        int countRead();
+        int countUnread();
+        BookNode *highestRated(BookNode *node, std::string);
     
 
     protected:
@@ -62,7 +66,8 @@ class BookTree{
         void printRead(BookNode *node);
         void printUnread(BookNode *node);
         BookNode *searchLibrary(BookNode *node, std::string);
-        int countBooks();
+        int countRead(BookNode *node);
+        int countUnread(BookNode *node);
         void updateBook(std::string _title);
 };
 

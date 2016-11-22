@@ -65,7 +65,7 @@ void BookTree::printLibrary(BookNode *node){
         printLibrary(node->leftChild);
     }
     
-    cout << node->title << " " << node -> rating << endl;
+    cout << node->title << endl;
     
     if(node->rightChild != NULL){
         printLibrary(node->rightChild);
@@ -85,7 +85,7 @@ void BookTree::printRead(BookNode *node){
     }
     
     if(node->completed == 1){
-        cout << node->title << endl;
+        cout <<  node->rating << "/5 | " << node->title << endl;
     }
     
     if(node->rightChild != NULL){
@@ -115,26 +115,64 @@ void BookTree::printUnread(BookNode *node){
     }
     
 }
-
 void BookTree::printUnread(){
-    
     printUnread(root);
 }
 
-int BookTree::countBooks(){
-    return 0;
+int BookTree::countUnread(BookNode *node){
+    
+    if(node == NULL){
+        return 0;
+    }
+    
+    if(node->completed == 0){
+        return countUnread(node->leftChild) + countUnread(node->rightChild) + 1;
+    }
+    else{
+        return countUnread(node->leftChild) + countUnread(node->rightChild);
+    }
+
+}
+
+int BookTree::countUnread(){
+    
+    return countUnread(root);
+    
+}
+
+int BookTree::countRead(BookNode *node){
+    if(node == NULL){
+        return 0;
+    }
+    
+    if(node->completed == 1){
+        return (countRead(node->leftChild) + countRead(node->rightChild) + 1);
+    }
+    else{
+        return countRead(node->leftChild) + countRead(node->rightChild);
+    }
+}
+
+int BookTree::countRead(){
+    
+    return countRead(root);
+    
 }
 
 BookNode* BookTree::searchLibrary(BookNode *node, string _title){
     
-    if(node == NULL) return NULL;
+    if(node == NULL) {
+        return NULL;
+    }
     
-    else if(node->title == _title) return node;
+    else if(node->title == _title){
+        return node;
+    }
     
     // Continue Searching Recursively.
     else{
         
-        if(node->title < _title){
+        if(node->title > _title){
             return searchLibrary(node -> leftChild, _title);
         }
         else {
@@ -151,23 +189,28 @@ void BookTree::getBookInfo(string _title){
     BookNode *searchedBook = searchLibrary(root, _title);
     
     if(searchedBook != NULL){
+        cout << endl;
+        cout << "--------------------------------" << endl;
         cout << searchedBook->title << endl;
-        cout << "======================================" << endl;
-        cout << "Written by: " << searchedBook->author << " in " << searchedBook->published << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Author: " << searchedBook->author << endl;
+        cout << "Year Published: " << searchedBook->published << endl;
         if(searchedBook->rating != 0){
              cout << "Your rating: " << searchedBook->rating << "/5" << endl;
         }
         else{
             cout << "[You have not rated this book.]" << endl;
         }
+        cout << "--------------------------------" << endl;
        
     }
     else {
-        cout << "Book not in your library" << endl;
+        cout << endl;
+        cout << "--------------------------------" << endl;
+        cout << "    Book not in your library    " << endl;
+        cout << "--------------------------------" << endl;
     }
-    
 }
-
 
 void BookTree::updateBook(string _title){
     
